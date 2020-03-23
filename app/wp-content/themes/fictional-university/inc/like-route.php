@@ -1,0 +1,71 @@
+<?php
+
+add_action('rest_api_init', 'universityLikeRoutes');
+
+function universityLikeRoutes() {
+  register_rest_route('university/v1', 'manageLike', array(
+    'methods' => 'POST',
+    'callback' => 'createLike'
+  ));
+
+  register_rest_route('university/v1', 'manageLike', array(
+    'methods' => 'DELETE',
+    'callback' => 'deleteLike'
+  ));
+}
+
+//function that will send a response ($data) back from the server
+function createLike($data) {
+  
+  //checked to see if user is logged in
+  if(is_user_logged_in()) {
+    $professor = sanitize_text_field($data['professorId']);
+
+    $existQuery = new WP_Query(array(
+      'author' => get_current_user_id(),
+      'post_type' => 'like',
+      'meta_query' => array(
+        array(
+          'key' => 'liked_professor_id',
+          'compare' => '=',
+          'value' => $professor
+        )
+      )
+    ));
+
+    // check if user hasn't already liked current professor of if like post does not already exists
+    if ($existQuery->found_posts == 0 AND get_post_type($professor) == 'professor') {
+      // create new like post with php and it returns the id 
+     return wp_insert_post(array(
+      'post_type' => 'like',
+      'post_status' => 'publish',
+      'post_title' => '3rd PHP Test',
+      // Wordpress will create custom fields inside our post types with meta_input and we can provide values to that field
+      'meta_input' => array(
+        'liked_professor_id' => $professor
+      )
+    ));
+    } else {
+      // can't like a professor you already liked
+      die('invalid professor id');
+    }
+
+    
+  } else {
+    die('Only logged in users can create a like');
+  }
+  
+ 
+}
+
+function deleteLike($data) {
+  $likeId = sanitize_text_field($data['like']);
+  if (get_current_user_id() == get_post_field('post_author', $likeId) AND get_post_type($likeId) == 'like') {
+    wp_delete_post($likeId, true);
+    return 'Congrats, like deleted.';
+  } else {
+    die("You do not have permission to delete that.");
+  }
+}
+
+?>
