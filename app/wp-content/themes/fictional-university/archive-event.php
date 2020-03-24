@@ -3,7 +3,8 @@
 get_header();
 pagesBanner(array(
   'title' => 'All Events',
-  'subtitle' => 'See what is going on in our world'
+  'subtitle' => 'See what is going on in our world',
+  'photo' => get_theme_file_uri('/images/event-banner.jpg')
 ));?>
 
   <div class="container container--narrow page-section">

@@ -3,7 +3,8 @@
 get_header();
 pagesBanner(array(
   'title' => 'All Programs',
-  'subtitle' => 'There is something for everyone. Have a look around.'
+  'subtitle' => 'There is something for everyone. Have a look around.',
+  'photo' => get_theme_file_uri('/images/programs-banner.jpg')
 ));?>
 
   <div class="container container--narrow page-section">
