@@ -186,11 +186,26 @@ function ourHeaderUrl(){
 }
 
 // This will allow us to customize the login screen 
-add_action('login_enqueue_scripts', 'ourLoginCSS');
+add_action('login_head', 'ourLoginCSS');
 
 function ourLoginCSS() {
-    wp_enqueue_style('site_main_styles', get_stylesheet_uri());
-    wp_enqueue_style('google-font', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+   echo '<style>
+    body {
+        background-image: url("http://fictional-university.test/wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Verdana, Arial;
+    }
+
+    .login h1 a{
+        display: none;
+    }
+
+     .login form{
+        background: transparent;
+    }
+   </style>';
 }
 
 // change the title info in our login/ logout

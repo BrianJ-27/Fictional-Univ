@@ -951,7 +951,7 @@ body.login .button-primary:focus {
 }
 
 body.login {
-  background-color: #FAF0CA;
+  background: #FAF0CA;
 }
 
 .login h1 a {
