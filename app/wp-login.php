@@ -203,8 +203,9 @@ function login_header( $title = 'Log In', $message = '', $wp_error = null ) {
 	do_action( 'login_header' );
 
 	?>
+	<!-- Hard Coding the link or a tag to say "Fictional Univeristy"-->
 	<div id="login">
-		<h1><a href="<?php echo esc_url( $login_header_url ); ?>"><?php echo $login_header_text; ?></a></h1>
+		<h1><a href="<?php echo esc_url( $login_header_url ); ?>"><span class="site_title_first-ltr">F</span>ictional <span class="site_title_first-ltr">U</span>niversity</a></h1>
 	<?php
 	/**
 	 * Filters the message to display above the login form.

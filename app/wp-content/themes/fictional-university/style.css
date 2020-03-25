@@ -950,9 +950,54 @@ body.login .button-primary:focus {
   box-shadow: 0 1px 0 rgb(186, 78, 56);
 }
 
+/*This will allow us to overwrite the css & customize the login screen */
 body.login {
-  background: #FAF0CA;
+        background-image: url("/wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: Verdana, Arial;
 }
+
+  #login{
+        height: 100%;
+        width: 80%;
+    }
+
+    #login,
+    #login form{ 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .login form{
+         box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.75);
+         border-radius: 5%;
+    }
+
+     .login form,
+     .login .message{
+        background: rgba( 255,255,255, 0.15 );
+    }
+
+    .login form .input, .login input[type=password], .login input[type=text], .login .forgetmenot input[type=checkbox]{
+        background: rgba(0,0,0,0);
+    }
+
+    @media only screen and (min-width: 768px){
+        #login{
+            width: 50%;
+        }
+    @media only screen and (min-width: 1024px){
+        #login{
+            width: 320px;
+        }
+    }
+}
+
+/*The End of the customized css styles for the login screen */
 
 .login h1 a {
   color: #0D3B66;

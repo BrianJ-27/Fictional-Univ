@@ -185,36 +185,11 @@ function ourHeaderUrl(){
     return esc_url(site_url('/'));
 }
 
-// This will allow us to customize the login screen 
-add_action('login_head', 'ourLoginCSS');
+// Default CSS Customize Login Screen 
+add_action('login_enqueue_scripts', 'ourLoginCss');
 
-function ourLoginCSS() {
-   echo '<style>
-    body {
-        background-image: url("./wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        font-family: Verdana, Arial;
-    }
-
-    .login h1 a{
-        display: none;
-    }
-
-    .login form{
-         box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.75);
-    }
-
-     .login form,
-     .login .message{
-        background: rgba( 255,255,255, 0.15 );
-    }
-
-    .login form .input, .login input[type=password], .login input[type=text], .login .forgetmenot input[type=checkbox]{
-        background: rgba(0,0,0,0);
-    }
-   </style>';
+function ourLoginCss() {
+    wp_enqueue_style('site_main_styles', get_stylesheet_uri());
 }
 
 // change the title info in our login/ logout
