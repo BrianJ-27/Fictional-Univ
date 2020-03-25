@@ -952,55 +952,113 @@ body.login .button-primary:focus {
 
 /*This will allow us to overwrite the css & customize the login screen */
 body.login {
-        background-image: url("/wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        font-family: Verdana, Arial;
+  background: url("/wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg")  no-repeat center center fixed;
+  background-size: cover;
+  font-family: Verdana, Arial;
 }
 
-  #login{
-        height: 100%;
-        width: 80%;
-    }
+body.login,
+#login,
+#login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    #login,
-    #login form{ 
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+#login {
+  width: 80%;
+  padding: 0;
+}
+
+.login form,
+.login h1 {
+  box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.75);
+}
+
+.login h1 {
+  margin-top: 6em;
+  background: #0D3B66;
+  border: 1px solid #fff;
+}
+
+.login h1 a {
+  margin: 0em;
+  padding: .5em;
+  color: #fff;
+}
+
+.login .message{
+  margin:  1em 0;
+  border-left: 4px solid #0D3B66;
+}
+
+.login form,
+.login .message {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.login form .input,
+.login input[type=password],
+.login input[type=text],
+.login .forgetmenot input[type=checkbox] {
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  border: 1px solid black;
+}
+.login form .input:focus,
+.login input[type=password]:focus,
+.login input[type=text]:focus,
+.login .forgetmenot input[type=checkbox]:focus {
+  outline: none;
+  border: 1px solid #0D3B66;
+  box-shadow: 0px 0px 2px 1px rgb(232, 85, 56);
+}
+
+/*Login orange button*/
+.wp-core-ui .button, .wp-core-ui .button.button-large{
+  width: 100%;
+  margin: 1em 0;
+}
+
+.login #nav a,
+.login #backtoblog a{
+  color: #0D3B66;
+}
+
+.login #nav a:hover,
+.login #backtoblog a:hover{
+  color: rgb(232, 85, 56);
+}
 
 
-    .login form{
-         box-shadow: 1px 1px 20px 1px rgba(0,0,0,0.75);
-         border-radius: 5%;
-    }
+@media only screen and (min-width: 375px) {
+  .login h1 {
+    margin-top: 2em;
+  }
+}
 
-     .login form,
-     .login .message{
-        background: rgba( 255,255,255, 0.15 );
-    }
 
-    .login form .input, .login input[type=password], .login input[type=text], .login .forgetmenot input[type=checkbox]{
-        background: rgba(0,0,0,0);
-    }
 
-    @media only screen and (min-width: 768px){
-        #login{
-            width: 50%;
-        }
-    @media only screen and (min-width: 1024px){
-        #login{
-            width: 320px;
-        }
-    }
+@media only screen and (min-width: 768px) {
+  #login {
+    width: 50%;
+  }
+
+  .login h1 {
+    margin-top: 0em;
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+  #login {
+    width: 320px;
+  }
 }
 
 /*The End of the customized css styles for the login screen */
 
 .login h1 a {
-  color: #0D3B66;
   font-size: 30px;
   font-weight: 300;
   background-image: none;
