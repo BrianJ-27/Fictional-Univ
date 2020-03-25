@@ -192,6 +192,17 @@ function ourLoginCss() {
     wp_enqueue_style('site_main_styles', get_stylesheet_uri());
 }
 
+
+// add_action('login_head', 'overwriteLoginCss');
+
+// function overwriteLoginCss(){
+//     echo '<style>
+//     body {
+//         background: black;
+//     }
+//     </style>';
+// }
+
 // change the title info in our login/ logout
 add_filter('login_headertitle', 'ourLoginTitle');
 function ourLoginTitle(){
