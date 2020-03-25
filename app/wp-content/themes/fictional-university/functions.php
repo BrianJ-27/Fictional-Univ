@@ -202,8 +202,17 @@ function ourLoginCSS() {
         display: none;
     }
 
-     .login form{
-        background: transparent;
+    .login form{
+         box-shadow: 1px 1px 20px 3px rgba(0,0,0,0.75);
+    }
+
+     .login form,
+     .login .message{
+        background: rgba( 255,255,255, 0.15 );
+    }
+
+    .login form .input, .login input[type=password], .login input[type=text], .login .forgetmenot input[type=checkbox]{
+        background: rgba(0,0,0,0);
     }
    </style>';
 }
