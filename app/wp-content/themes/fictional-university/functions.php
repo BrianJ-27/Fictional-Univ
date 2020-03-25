@@ -191,7 +191,7 @@ add_action('login_head', 'ourLoginCSS');
 function ourLoginCSS() {
    echo '<style>
     body {
-        background-image: url("http://fictional-university.test/wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
+        background-image: url("./wp-content/uploads/2020/03/login-stack-of-books-1-scaled.jpg");
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
