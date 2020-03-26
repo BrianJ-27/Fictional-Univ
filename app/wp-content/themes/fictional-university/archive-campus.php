@@ -21,6 +21,22 @@ pagesBanner(array(
         <?php } ?>
     </div>
 
+    <div>
+      <?php
+        echo '<hr class="section-break">';
+        echo '<h2 class="headline headline--medium">All Available Campuses to Attend</h2>';
+        echo '<ul class="link-list min-list">';
+         while(have_posts()){
+          the_post(); 
+          ?>
+          <li>
+          <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+          </li>
+        <?php }
+        echo '</ul>';
+      ?>
+    </div>
+
   </div>
 
 <?php get_footer();
